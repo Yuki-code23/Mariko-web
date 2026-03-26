@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import { MOCK_NEWS } from '@/constants/data';
+import { getNewsList } from '@/lib/microcms';
 import { formatDate } from '@/lib/utils';
 
-export function News() {
-  const news = MOCK_NEWS;
+export async function News() {
+  // Fetch data from microCMS
+  const data = await getNewsList({ limit: 5 });
+  const news = data.contents;
 
   return (
     <section id="news" className="py-24 bg-background text-foreground">
@@ -18,9 +20,11 @@ export function News() {
               <article key={item.id} className="border-b border-foreground/10 group">
                 <Link href="#" className="flex flex-col md:flex-row gap-4 py-6 md:items-center hover:bg-brand-pink/5 transition-colors md:px-4 md:-mx-4 rounded-lg">
                   <div className="flex flex-row items-center gap-4 md:w-1/3 shrink-0">
-                    <time className="font-mono text-sm opacity-80">{formatDate(item.date)}</time>
+                    <time className="font-mono text-sm opacity-80">
+                      {item.publishedAtDate ? formatDate(item.publishedAtDate) : formatDate(item.publishedAt || item.createdAt)}
+                    </time>
                     <span className="text-xs font-bold px-3 py-1 bg-brand-pink/10 text-brand-pink rounded-full">
-                      {item.category}
+                      {item.category || 'お知らせ'}
                     </span>
                   </div>
                   <h3 className="font-bold text-lg group-hover:text-brand-pink transition-colors line-clamp-2">

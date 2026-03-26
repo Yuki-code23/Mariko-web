@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { MOCK_EVENTS } from '@/constants/data';
-import { formatDate } from '@/lib/utils';
-import type { Event } from '@/types';
+import { getEventList } from '@/lib/microcms';
+import type { Event as MicroCMSEvent } from '@/lib/microcms';
 
-export function Events() {
-  const events = MOCK_EVENTS;
+export async function Events() {
+  const data = await getEventList({ limit: 6 });
+  const events = data.contents;
 
   return (
     <section id="events" className="py-24 bg-brand-orange-light/5 text-foreground">
@@ -28,30 +28,30 @@ export function Events() {
   );
 }
 
-function EventCard({ event }: { event: Event }) {
+function EventCard({ event }: { event: MicroCMSEvent }) {
+  // Use image URL if it exists, otherwise use fallback
+  const fallbackImg = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+  const imageUrl = event.imageUrl?.url || fallbackImg;
+
   return (
     <article className="bg-background rounded-2xl overflow-hidden shadow-lg flex flex-col group hover:-translate-y-2 transition-transform duration-300 border border-foreground/5">
       <div className="relative aspect-[4/3] w-full bg-foreground/5 shrink-0 overflow-hidden">
-        {event.imageUrl ? (
-          <Image 
-            src={event.imageUrl} 
-            alt={`${event.title}のイメージ画像`} 
-            fill 
-            className="object-cover group-hover:scale-105 transition-transform duration-500" 
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        ) : (
-          <div className="flex items-center justify-center w-full h-full opacity-30 font-bold tracking-widest text-sm">NO IMAGE</div>
-        )}
+        <Image 
+          src={imageUrl} 
+          alt={`${event.title}のイメージ画像`} 
+          fill 
+          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
       </div>
       <div className="p-6 flex flex-col flex-grow gap-4">
         <div className="flex flex-col gap-1 text-sm font-bold text-brand-orange-dark">
-          <time>{formatDate(event.date)}</time>
-          <span className="opacity-80 text-foreground">{event.location}</span>
+          <time>{event.date || '日時未定'}</time>
+          <span className="opacity-80 text-foreground">{event.location || 'オンライン / 未定'}</span>
         </div>
         <h3 className="font-bold font-heading text-xl leading-tight text-balance group-hover:text-brand-orange-dark transition-colors">{event.title}</h3>
-        <p className="text-sm opacity-70 flex-grow">{event.description}</p>
-        <Link href="#" className="mt-4 text-brand-teal font-bold hover:opacity-70 transition-opacity self-start inline-flex items-center gap-1">
+        <p className="text-sm opacity-70 flex-grow leading-relaxed">{event.description}</p>
+        <Link href={event.link || '#'} target={event.link ? "_blank" : undefined} rel={event.link ? "noopener noreferrer" : undefined} className="mt-4 text-brand-teal font-bold hover:opacity-70 transition-opacity self-start inline-flex items-center gap-1">
           詳細を見る <span aria-hidden="true">&rarr;</span>
         </Link>
       </div>

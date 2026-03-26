@@ -4,7 +4,7 @@ const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    img-src 'self' blob: data: https://tentsukuman.onaka-hoiku.net;
+    img-src 'self' blob: data: https://tentsukuman.onaka-hoiku.net https://images.microcms-assets.io https://images.unsplash.com;
     font-src 'self' https://fonts.gstatic.com;
     object-src 'none';
     base-uri 'self';
@@ -19,6 +19,14 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'tentsukuman.onaka-hoiku.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.microcms-assets.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
       },
     ],
   },
