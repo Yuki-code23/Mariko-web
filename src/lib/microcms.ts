@@ -37,34 +37,54 @@ export type Project = {
 
 // Fetchers
 export const getNewsList = async (queries?: MicroCMSQueries) => {
-  return await client.getList<News>({
-    endpoint: 'news',
-    queries,
-    customRequestInit: { next: { tags: ['news'] } },
-  });
+  try {
+    return await client.getList<News>({
+      endpoint: 'news',
+      queries,
+      customRequestInit: { next: { tags: ['news'] } },
+    });
+  } catch (error) {
+    console.error('Failed to fetch news:', error);
+    return { contents: [], totalCount: 0, offset: 0, limit: 10 };
+  }
 };
 
 export const getEventList = async (queries?: MicroCMSQueries) => {
-  return await client.getList<Event>({
-    endpoint: 'events',
-    queries,
-    customRequestInit: { next: { tags: ['events'] } },
-  });
+  try {
+    return await client.getList<Event>({
+      endpoint: 'events',
+      queries,
+      customRequestInit: { next: { tags: ['events'] } },
+    });
+  } catch (error) {
+    console.error('Failed to fetch events:', error);
+    return { contents: [], totalCount: 0, offset: 0, limit: 10 };
+  }
 };
 
 export const getProjectList = async (queries?: MicroCMSQueries) => {
-  return await client.getList<Project>({
-    endpoint: 'projects',
-    queries,
-    customRequestInit: { next: { tags: ['projects'] } },
-  });
+  try {
+    return await client.getList<Project>({
+      endpoint: 'projects',
+      queries,
+      customRequestInit: { next: { tags: ['projects'] } },
+    });
+  } catch (error) {
+    console.error('Failed to fetch projects:', error);
+    return { contents: [], totalCount: 0, offset: 0, limit: 10 };
+  }
 };
 
 export const getProjectDetail = async (contentId: string, queries?: MicroCMSQueries) => {
-  return await client.getListDetail<Project>({
-    endpoint: 'projects',
-    contentId,
-    queries,
-    customRequestInit: { next: { tags: ['projects'] } },
-  });
+  try {
+    return await client.getListDetail<Project>({
+      endpoint: 'projects',
+      contentId,
+      queries,
+      customRequestInit: { next: { tags: ['projects'] } },
+    });
+  } catch (error) {
+    console.error(`Failed to fetch project detail (${contentId}):`, error);
+    throw new Error('Project not found');
+  }
 };

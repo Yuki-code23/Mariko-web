@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 指定されたタグを持つキャッシュデータをパージし、次回のアクセスで最新化する
-    revalidateTag(tag);
+    revalidateTag(tag, 'max');
     console.log(`[Webhook Success] Revalidated tag: ${tag}`);
 
     return NextResponse.json({ revalidated: true, tag, now: Date.now() });
