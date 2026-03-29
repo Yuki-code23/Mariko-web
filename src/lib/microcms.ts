@@ -32,6 +32,7 @@ export type Project = {
   img: MicroCMSImage;
   color: string;
   colorText: string;
+  content?: string;
 } & MicroCMSDate;
 
 // Fetchers
@@ -39,6 +40,7 @@ export const getNewsList = async (queries?: MicroCMSQueries) => {
   return await client.getList<News>({
     endpoint: 'news',
     queries,
+    customRequestInit: { next: { tags: ['news'] } },
   });
 };
 
@@ -46,6 +48,7 @@ export const getEventList = async (queries?: MicroCMSQueries) => {
   return await client.getList<Event>({
     endpoint: 'events',
     queries,
+    customRequestInit: { next: { tags: ['events'] } },
   });
 };
 
@@ -53,5 +56,15 @@ export const getProjectList = async (queries?: MicroCMSQueries) => {
   return await client.getList<Project>({
     endpoint: 'projects',
     queries,
+    customRequestInit: { next: { tags: ['projects'] } },
+  });
+};
+
+export const getProjectDetail = async (contentId: string, queries?: MicroCMSQueries) => {
+  return await client.getListDetail<Project>({
+    endpoint: 'projects',
+    contentId,
+    queries,
+    customRequestInit: { next: { tags: ['projects'] } },
   });
 };

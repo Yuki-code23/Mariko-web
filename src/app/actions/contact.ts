@@ -2,8 +2,65 @@
 
 import { contactSchema } from '@/lib/schema';
 import nodemailer from 'nodemailer';
+import { Ratelimit } from '@upstash/ratelimit';
+import { Redis } from '@upstash/redis';
+import { headers } from 'next/headers';
+
+// Verify Upstash env variables
+const hasRedis = process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN;
+const redis = hasRedis ? Redis.fromEnv() : null;
+const ratelimit = redis
+  ? new Ratelimit({
+      redis,
+      limiter: Ratelimit.slidingWindow(5, '1 h'),
+      analytics: true,
+    })
+  : null;
 
 export async function submitContact(formData: FormData) {
+  // 1. Rate Limiting Check
+  if (ratelimit) {
+    const headerList = await headers();
+    const ip = headerList.get('x-forwarded-for') ?? headerList.get('x-real-ip') ?? '127.0.0.1';
+    const { success } = await ratelimit.limit(ip);
+    if (!success) {
+      return {
+        success: false,
+        error: 'アクセスが多すぎます。時間をおいてから再度お試しください。',
+      };
+    }
+  }
+
+  // 2. Turnstile Verification
+  const turnstileToken = formData.get('turnstileToken') as string;
+  if (!turnstileToken) {
+    return { success: false, error: '不正なアクセスです（Bot判定）。' };
+  }
+
+  if (turnstileToken) {
+    const secretKey = process.env.TURNSTILE_SECRET_KEY;
+    if (secretKey) {
+      const verifyEndpoint = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+      const turnstileForm = new URLSearchParams();
+      turnstileForm.append('secret', secretKey);
+      turnstileForm.append('response', turnstileToken);
+
+      const turnstileRes = await fetch(verifyEndpoint, {
+        method: 'POST',
+        body: turnstileForm,
+      });
+      const turnstileResult = await turnstileRes.json();
+
+      if (!turnstileResult.success) {
+        return {
+          success: false,
+          error: 'スパムチェックに失敗しました。時間をおいてから操作してください。',
+        };
+      }
+    }
+  }
+
+  // 3. User Input Validation
   const rawData = {
     name: formData.get('name'),
     email: formData.get('email'),

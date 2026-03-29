@@ -23,7 +23,8 @@ export const metadata: Metadata = {
     default: '【公式】きっかけ番長☆てんつくマン オフィシャルサイト',
     template: '%s | きっかけ番長☆てんつくマン',
   },
-  description: 'お笑い芸人から路上詩人、映画監督、社会活動家へ。てんつくマンが「きっかけ」を届けるプロジェクトを通じて、笑いと行動で人と社会をつなぎます。',
+  description:
+    'お笑い芸人から路上詩人、映画監督、社会活動家へ。てんつくマンが「きっかけ」を届けるプロジェクトを通じて、笑いと行動で人と社会をつなぎます。',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
@@ -46,7 +47,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
-      <body className={`${zenKaku.variable} ${jost.variable} antialiased flex flex-col min-h-screen`}>
+      <body
+        className={`${zenKaku.variable} ${jost.variable} antialiased flex flex-col min-h-screen`}
+      >
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />

@@ -17,9 +17,13 @@ function MenuButton({ isOpen, toggle }: { isOpen: boolean; toggle: () => void })
   return (
     <button onClick={toggle} className="relative z-50 p-2 text-foreground" aria-label="Toggle menu">
       <div className="w-6 flex flex-col gap-1.5">
-        <span className={`h-0.5 bg-current transition-transform ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
+        <span
+          className={`h-0.5 bg-current transition-transform ${isOpen ? 'rotate-45 translate-y-2' : ''}`}
+        />
         <span className={`h-0.5 bg-current transition-opacity ${isOpen ? 'opacity-0' : ''}`} />
-        <span className={`h-0.5 bg-current transition-transform ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+        <span
+          className={`h-0.5 bg-current transition-transform ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}
+        />
       </div>
     </button>
   );
@@ -30,7 +34,12 @@ function MenuOverlay({ onClose }: { onClose: () => void }) {
     <div className="fixed inset-0 bg-background/95 backdrop-blur z-40 flex flex-col items-center justify-center">
       <nav className="flex flex-col gap-6 text-xl font-bold font-heading text-center">
         {NAV_LINKS.map((link) => (
-          <Link key={link.href} href={link.href} onClick={onClose} className="hover:text-brand-pink transition-colors">
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={onClose}
+            className="hover:text-brand-pink transition-colors"
+          >
             {link.label}
           </Link>
         ))}

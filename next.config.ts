@@ -1,11 +1,12 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src 'self' blob: data: https://tentsukuman.onaka-hoiku.net https://images.microcms-assets.io https://images.unsplash.com;
     font-src 'self' https://fonts.gstatic.com;
+    frame-src 'self' https://challenges.cloudflare.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
