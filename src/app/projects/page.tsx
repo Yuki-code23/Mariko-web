@@ -3,8 +3,8 @@ import { ProjectCard } from '@/components/sections/ProjectsGrid';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'プロジェクト一覧 | きっかけ番長☆てんつくマン オフィシャルサイト',
-  description: 'てんつくマンが現在手掛けているプロジェクトの一覧です。',
+  title: 'プロジェクト一覧 | マリコ☆バタフライ オフィシャルサイト',
+  description: 'マリコ☆バタフライが現在手掛けているプロジェクトの一覧です。',
 };
 
 export default async function ProjectsPage() {
@@ -16,7 +16,7 @@ export default async function ProjectsPage() {
       <div className="container mx-auto px-4">
         <header className="mb-16 text-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">プロジェクト一覧</h1>
-          <p className="opacity-80">てんつくマンが関わるすべての活動・プロジェクト</p>
+          <p className="opacity-80">マリコ☆バタフライが関わるすべての活動・プロジェクト</p>
         </header>
 
         {projects.length === 0 ? (

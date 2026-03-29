@@ -8,12 +8,12 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   try {
     const project = await getProjectDetail(id);
     return {
-      title: `${project.title} | プロジェクト | きっかけ番長☆てんつくマン`,
+      title: `${project.title} | プロジェクト | マリコ☆バタフライ`,
       description: project.desc,
     };
   } catch {
     return {
-      title: 'プロジェクト | きっかけ番長☆てんつくマン',
+      title: 'プロジェクト | マリコ☆バタフライ',
     };
   }
 }

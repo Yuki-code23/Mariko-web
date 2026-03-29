@@ -24,8 +24,8 @@ function ImageSection() {
     >
       <div className="absolute inset-0 bg-brand-orange-light/20 z-10 mix-blend-overlay" />
       <img
-        src="https://tentsukuman.onaka-hoiku.net/wp-content/uploads/2025/09/profileTopSec_img01.jpg"
-        alt="きっかけ番長てんつくマン"
+        src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=800"
+        alt="マリコ☆バタフライ"
         className="w-full h-full object-cover"
       />
     </motion.div>
@@ -41,14 +41,16 @@ function TextSection() {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.8 }}
     >
-      <h2 className="text-sm font-bold tracking-widest text-brand-teal uppercase">Tentsukuman</h2>
+      <h2 className="text-sm font-bold tracking-widest text-brand-teal uppercase">
+        Mariko Butterfly
+      </h2>
       <h3 className="text-3xl md:text-5xl font-heading font-bold text-foreground">
-        きっかけ番長
+        マリコ☆バタフライ
         <br />
-        てんつくマンとは？
+        とは？
       </h3>
       <p className="text-foreground/80 leading-relaxed text-lg">
-        元祖路上詩人としてこれまでに約15万人以上の方たちにインスピレーションで言葉を届けてきた。お笑い芸人から転身し、『動けば変わる』を合い言葉に「行動することの大切さ」を伝える講演や、社会活動家として幅広い分野で活動。
+        「世界に美しい羽ばたきを」をテーマに活動するクリエイター。独自の感性でファッションやアートの分野に新たな風を吹き込み、多くの人々にインスピレーションを与え続けている。
       </p>
       <Link
         href="/profile"

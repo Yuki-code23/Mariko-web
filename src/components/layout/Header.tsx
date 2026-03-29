@@ -31,8 +31,8 @@ function Logo() {
       href="/"
       className="font-heading font-bold text-2xl tracking-tighter hover:opacity-80 transition-opacity"
     >
-      <span className="text-brand-orange-light">きっかけ</span>
-      <span className="text-foreground">番長</span>
+      <span className="text-brand-orange-light">マリコ☆</span>
+      <span className="text-foreground">バタフライ</span>
     </Link>
   );
 }

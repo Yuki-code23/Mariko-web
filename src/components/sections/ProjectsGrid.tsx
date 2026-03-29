@@ -36,7 +36,7 @@ function HeaderArea() {
         viewport={{ once: true }}
       >
         <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">プロジェクト</h2>
-        <p className="opacity-80">てんつくマンが、現在手掛けているプロジェクト</p>
+        <p className="opacity-80">マリコ☆バタフライが、現在手掛けているプロジェクト</p>
       </motion.div>
       <Link
         href="/projects"

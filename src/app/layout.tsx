@@ -20,11 +20,11 @@ const jost = Jost({
 
 export const metadata: Metadata = {
   title: {
-    default: '【公式】きっかけ番長☆てんつくマン オフィシャルサイト',
-    template: '%s | きっかけ番長☆てんつくマン',
+    default: '【公式】マリコ☆バタフライ オフィシャルサイト',
+    template: '%s | マリコ☆バタフライ',
   },
   description:
-    'お笑い芸人から路上詩人、映画監督、社会活動家へ。てんつくマンが「きっかけ」を届けるプロジェクトを通じて、笑いと行動で人と社会をつなぎます。',
+    'マリコ☆バタフライの公式オフィシャルサイトです。最新の活動情報やプロジェクト、イベント情報をお届けします。',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',

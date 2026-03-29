@@ -7,7 +7,9 @@ export function Footer() {
       <div className="container mx-auto px-4 flex flex-col items-center gap-8">
         <FooterNav />
         <SocialLinks />
-        <p className="text-xs text-center opacity-70">©2026 Tentsukuman. – All rights reserved.</p>
+        <p className="text-xs text-center opacity-70">
+          ©2026 Mariko Butterfly. – All rights reserved.
+        </p>
       </div>
     </footer>
   );

@@ -3,10 +3,10 @@ import { News, Event } from '@/types';
 export const MOCK_NEWS: News[] = [
   {
     id: 'n1',
-    title: 'てんつくマンの新プロジェクト「MIRAI WARAI COOOL VILLAGE」がスタートします！',
+    title: 'マリコ☆バタフライの新プロジェクト「MIRAI COOOL VILLAGE」がスタートします！',
     date: '2026-03-15T00:00:00Z',
     category: 'お知らせ',
-    content: '国境も言葉も関係なく、みんなが笑顔になれる新しい村づくりプロジェクトが始動しました。',
+    content: '国境も言葉も関係なく、みんなが笑顔になれる新しいアートプロジェクトが始動しました。',
     slug: 'mirai-warai-start',
   },
   {

@@ -3,7 +3,7 @@ import { ProfileClient } from './ProfileClient';
 
 export const metadata: Metadata = {
   title: 'プロフィール',
-  description: 'てんつくマンのプロフィールについて掲載しています。',
+  description: 'マリコ☆バタフライのプロフィールについて掲載しています。',
 };
 
 export default function ProfilePage() {

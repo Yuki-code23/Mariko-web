@@ -19,8 +19,8 @@ function HeroBackground() {
   return (
     <div className="absolute inset-0 opacity-10">
       <Image
-        src="https://tentsukuman.onaka-hoiku.net/wp-content/uploads/2025/09/profileTopSec_img01.jpg"
-        alt="てんつくマン メインビジュアル"
+        src="https://images.unsplash.com/photo-1544605177-74be8dfc20f5?q=80&w=1200"
+        alt="マリコ☆バタフライ メインビジュアル"
         fill
         priority
         className="object-cover object-center"
@@ -38,9 +38,9 @@ function HeroCopy() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      動けば変わる、
+      心と身体に、
       <br className="md:hidden" />
-      <span className="text-brand-orange-dark">きっかけ</span>を届ける。
+      <span className="text-brand-orange-dark">美しい羽ばたき</span>を。
     </motion.h1>
   );
 }
@@ -53,9 +53,9 @@ function HeroDesc() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
     >
-      お笑い芸人から路上詩人、映画監督、社会活動家へ。
+      「日常に魔法をかける」をテーマに活動するクリエイター。
       <br />
-      笑いと行動で人と社会をつなぎます。
+      自由な発想で、あなたに新しい風を届けます。
     </motion.p>
   );
 }

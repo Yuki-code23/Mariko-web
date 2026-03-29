@@ -3,7 +3,7 @@ import { formatDate } from '@/lib/utils';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'ニュース一覧 | きっかけ番長☆てんつくマン オフィシャルサイト',
+  title: 'ニュース一覧 | マリコ☆バタフライ オフィシャルサイト',
   description: '最新のニュースや更新情報の一覧です。',
 };
 
