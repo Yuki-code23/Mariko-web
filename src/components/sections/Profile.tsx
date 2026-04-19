@@ -50,7 +50,7 @@ function TextSection() {
         とは？
       </h3>
       <p className="text-foreground/80 leading-relaxed text-lg">
-        「世界に美しい羽ばたきを」をテーマに活動するクリエイター。独自の感性でファッションやアートの分野に新たな風を吹き込み、多くの人々にインスピレーションを与え続けている。
+        開運クリエイター/TikToker/YouTuber 明るく前向きな動画やブログを発信しています。
       </p>
       <Link
         href="/profile"

@@ -14,7 +14,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-colors duration-300 ${isScrolled ? 'bg-background shadow-md' : 'bg-transparent'}`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background shadow-md' : 'bg-white/75 backdrop-blur-md'}`}
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Logo />
@@ -49,14 +49,28 @@ function DesktopNav() {
           {l.label}
         </Link>
       ))}
-      <Link
-        href="https://line.me/R/ti/p/@101qdmxr?ts=09212203&oat_content=url"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bg-brand-green text-background px-4 py-2 rounded-full font-bold text-sm hover:opacity-90"
-      >
-        LINE登録
-      </Link>
+      <div className="flex items-center gap-3">
+        {/* Ameblo (アメブロ) */}
+        <a
+          href="https://ameblo.jp/batahurai88/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ameba Blog"
+          className="w-9 h-9 rounded-full bg-[#2da342]/10 text-[#2da342] border border-[#2da342]/30 flex items-center justify-center hover:bg-[#2da342] hover:text-white transition-all duration-300"
+          title="マリコ☆バタフライのアメブロを見る"
+        >
+          {/* Ameba風の『a』アイコン */}
+          <span className="font-bold font-serif italic text-lg leading-none pt-0.5 pr-0.5">a</span>
+        </a>
+        <Link
+          href="https://line.me/R/ti/p/@101qdmxr?ts=09212203&oat_content=url"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-brand-green text-background px-4 py-2 rounded-full font-bold text-sm hover:opacity-90"
+        >
+          LINE登録
+        </Link>
+      </div>
     </nav>
   );
 }

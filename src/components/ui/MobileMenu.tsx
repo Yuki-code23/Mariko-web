@@ -43,6 +43,21 @@ function MenuOverlay({ onClose }: { onClose: () => void }) {
             {link.label}
           </Link>
         ))}
+
+        {/* Ameba Blog (モバイル) */}
+        <div className="flex justify-center gap-5 mt-2">
+          <a
+            href="https://ameblo.jp/batahurai88/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ameba Blog"
+            className="w-12 h-12 rounded-full border border-[#2da342]/30 bg-[#2da342]/10 text-[#2da342] flex items-center justify-center hover:bg-[#2da342] hover:text-white transition-all duration-300"
+          >
+            <span className="font-bold font-serif italic text-2xl leading-none pt-0.5 pr-0.5">
+              a
+            </span>
+          </a>
+        </div>
       </nav>
     </div>
   );

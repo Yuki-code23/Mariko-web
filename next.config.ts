@@ -4,7 +4,7 @@ const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    img-src 'self' blob: data: https://tentsukuman.onaka-hoiku.net https://images.microcms-assets.io https://images.unsplash.com;
+    img-src 'self' blob: data: https://tentsukuman.onaka-hoiku.net https://images.microcms-assets.io https://images.unsplash.com https://c.stat-ameba.jp https://stat-ameba.jp https://stat100.ameba.jp;
     font-src 'self' https://fonts.gstatic.com;
     frame-src 'self' https://challenges.cloudflare.com;
     object-src 'none';
@@ -28,6 +28,18 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'c.stat-ameba.jp',
+      },
+      {
+        protocol: 'https',
+        hostname: 'stat-ameba.jp',
+      },
+      {
+        protocol: 'https',
+        hostname: 'stat100.ameba.jp',
       },
     ],
   },

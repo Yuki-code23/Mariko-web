@@ -2,14 +2,27 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const HISTORY = [
-  { year: '1990', event: '誕生。幼少期から色彩豊かな世界に惹かれる' },
-  { year: '2010', event: 'デザインコンペティションで最優秀賞を受賞' },
-  { year: '2015', event: '初の個展「Butterfly Effect」を開催、大きな反響を呼ぶ' },
-  { year: '2018', event: 'クリエイティブ・スタジオを設立' },
-  { year: '2021', event: '「世界に美しい羽ばたきを」プロジェクトを始動' },
-  { year: '2023', event: '全国ツアーを展開し、各地でワークショップを開催' },
-  { year: '2026', event: '新たなデジタルアートプロジェクトを発表' },
+const HISTORY: { year: string; items: string[] }[] = [
+  {
+    year: '2015',
+    items: ['自己啓発をテーマに、学びのアウトプットとしてアメブロを開設'],
+  },
+  {
+    year: '2023',
+    items: ['ブログの内容を動画で届けようと、知識ゼロからYouTubeをスタート'],
+  },
+  {
+    year: '2024',
+    items: [
+      'TikTok運用大全の出版パーティーに参加。師匠・とっしーさんと出会い、その塾に入門',
+      '「幸せなら手をたたこう」の替え歌を投稿し、TikTokで70万再生の大バズりを達成',
+      '4月よりバースデーソングのリクエストが殺到（200件超）。一時有料化・受付休止を経て、9月に再開し現在に至る',
+    ],
+  },
+  {
+    year: '2025',
+    items: ['ライブ配信アプリ「マシェバラ」のオフラインイベントにアーティストとして出演・活躍中'],
+  },
 ];
 
 export function ProfileClient() {
@@ -31,10 +44,10 @@ export function ProfileClient() {
               マリコ☆バタフライ
             </h1>
             <p className="text-xl font-bold text-brand-orange-dark mb-6 leading-relaxed">
-              開運クリエイター／アーティスト／「世界に美しい羽ばたきを」代表
+              開運クリエイター／TikTokerYouTuber／配信者／アーティスト
             </p>
             <p className="text-lg leading-relaxed opacity-80">
-              「日常に魔法をかける」をテーマに活動するクリエイター。独自の感性でファッションやアートの分野に新たな風を吹き込み、多くの人々にインスピレーションを与え続けている。
+              笑顔と歌声で人々の日常に光を灯すクリエイター。明るく前向きな動画やブログを発信しています。即興の応援ソングやスピリチュアルな言葉で、見る人の心をそっと押し上げます。
             </p>
           </motion.div>
           <motion.div
@@ -68,13 +81,11 @@ export function ProfileClient() {
         >
           <h2 className="text-3xl font-bold font-heading mb-8 text-center">彼女が歩んできた道</h2>
           <p className="leading-loose opacity-90">
-            幼少期からアートやファッションに親しみ、独自の感性を磨く。その後、デザイナーとして独立し、数々のアパレルブランドやアートプロジェクトを手掛ける。
+            20代の頃に統合失調症を発症して、1年間は引きこもりになった経験がある。
             <br />
             <br />
-            「世界に美しい羽ばたきを」というビジョンのもと、日常に魔法をかけるような体験を創り出し、多くの人々にインスピレーションを与え続けている。
-            <br />
-            <br />
-            現在は全国各地で個展やワークショップを開催し、参加者一人ひとりの内なる美しさを引き出す活動に力を入れている。
+            現在も通院中 生きるのが辛いと思うことがあるからこそ、同じように辛い思いをしている人に
+            元気を届けたいと思い活動しています
           </p>
         </motion.div>
 
@@ -108,8 +119,21 @@ export function ProfileClient() {
                   {/* Dot */}
                   <div className="absolute -left-[11px] top-1.5 w-5 h-5 bg-brand-orange-light rounded-full border-4 border-background shadow-sm group-hover:scale-125 transition-transform duration-300" />
 
-                  {/* Event Text */}
-                  <p className="text-lg font-medium leading-relaxed">{item.event}</p>
+                  {/* Event Items */}
+                  {item.items.length === 1 ? (
+                    <p className="text-lg font-medium leading-relaxed">{item.items[0]}</p>
+                  ) : (
+                    <ul className="space-y-3">
+                      {item.items.map((event, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange-dark/60" />
+                          <p className="text-base md:text-lg font-medium leading-relaxed">
+                            {event}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </motion.div>
             ))}
