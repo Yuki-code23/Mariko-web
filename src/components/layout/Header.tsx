@@ -50,7 +50,9 @@ function DesktopNav() {
         </Link>
       ))}
       <Link
-        href="https://lin.ee/i5pVEuG"
+        href="https://line.me/R/ti/p/@101qdmxr?ts=09212203&oat_content=url"
+        target="_blank"
+        rel="noopener noreferrer"
         className="bg-brand-green text-background px-4 py-2 rounded-full font-bold text-sm hover:opacity-90"
       >
         LINE登録
