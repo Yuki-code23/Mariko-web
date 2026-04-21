@@ -37,9 +37,9 @@ export function OshiIntro() {
             transition={{ duration: 0.8 }}
           >
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl group">
-              {/* 仮画像（後から差し替え可能） */}
+              {/* 21Selfの画像 */}
               <img
-                src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=800&auto=format&fit=crop"
+                src="/images/21self.jpg"
                 alt="21Self（ツーワンセルフ）"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -50,10 +50,6 @@ export function OshiIntro() {
                 <span className="inline-block bg-white/90 backdrop-blur-sm text-brand-pink font-bold font-heading text-xl px-5 py-2 rounded-2xl shadow-lg">
                   21Self
                 </span>
-              </div>
-              {/* ※差し替え案内（開発用・本番では削除可） */}
-              <div className="absolute top-4 right-4 bg-black/50 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
-                📸 画像差し替え可
               </div>
             </div>
           </motion.div>

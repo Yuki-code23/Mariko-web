@@ -42,7 +42,7 @@ async function getAmebloFeed(): Promise<AmebloPost[]> {
       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
 
     const res = await fetch(`${baseUrl}/api/ameblo-rss`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 }, // ※一時的にキャッシュを無効化（修正確認用）
     });
 
     if (!res.ok) return [];

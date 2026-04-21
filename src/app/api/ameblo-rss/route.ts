@@ -10,8 +10,19 @@ const POSTS_COUNT = 4;
  * <description>のCDATAにimgタグが含まれる場合に取得
  */
 function extractThumbnail(description: string): string | null {
-  const match = description.match(/<img[^>]+src=["']([^"']+)["']/i);
-  return match ? match[1] : null;
+  const matches = [...description.matchAll(/<img[^>]+src=["']([^"']+)["']/gi)];
+
+  for (const match of matches) {
+    // URLに含まれる &amp; などを戻す
+    const src = match[1].replace(/&amp;/g, '&');
+
+    // アメブロのユーザーがアップロードした写真（user_images）のみを
+    // サムネイルとして許可する（ブラックリスト方式だと無関係なアイコンや不正なURLを拾ってしまうため）
+    if (src.includes('user_images') || src.includes('/user_images/')) {
+      return src;
+    }
+  }
+  return null;
 }
 
 /**
@@ -36,7 +47,7 @@ export async function GET() {
         'User-Agent': 'Mozilla/5.0 (compatible; Mariko-web/1.0; +https://mariko-web.vercel.app)',
         Accept: 'application/rss+xml, application/xml, text/xml',
       },
-      next: { revalidate: 3600 }, // 1時間キャッシュ
+      next: { revalidate: 0 }, // ※一時的にキャッシュを無効化
     });
 
     if (!response.ok) {
@@ -75,7 +86,7 @@ export async function GET() {
 
     return NextResponse.json(posts, {
       headers: {
-        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=7200',
+        'Cache-Control': 'no-store, max-age=0',
       },
     });
   } catch (error) {
