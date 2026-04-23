@@ -30,17 +30,18 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: '【公式】きっかけ番長☆てんつくマン オフィシャルサイト',
-    description: 'お笑い芸人から路上詩人、映画監督、社会活動家へ。',
-    url: 'https://tentsukuman.onaka-hoiku.net/',
-    siteName: 'きっかけ番長☆てんつくマン',
+    title: '【公式】マリコ☆バタフライ オフィシャルサイト',
+    description:
+      'マリコ☆バタフライの公式オフィシャルサイトです。最新の活動情報やプロジェクト、イベント情報をお届けします。',
+    url: 'https://mariko-butterfly.com/',
+    siteName: 'マリコ☆バタフライ',
     locale: 'ja_JP',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@tentsukuman',
-    creator: '@tentsukuman',
+    site: '@batahurai88',
+    creator: '@batahurai88',
   },
 };
 

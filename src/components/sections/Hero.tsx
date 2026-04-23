@@ -7,11 +7,11 @@ export function Hero() {
     <section className="relative w-full h-[60vh] min-h-[400px] overflow-hidden">
       {/* 背景フル写真 */}
       <Image
-        src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=1600&auto=format&fit=crop"
+        src="/images/hero-main.jpg"
         alt="マリコ☆バタフライ メインビジュアル"
         fill
         priority
-        className="object-cover object-center"
+        className="object-cover object-center md:object-[center_25%]"
         sizes="100vw"
       />
 
@@ -38,9 +38,15 @@ export function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          明るく前向きになれる開運クリエイター
+          明るく前向きになれる
+          <br className="md:hidden" />
+          開運クリエイター
           <br />
-          <span className="text-brand-pink drop-shadow-md">あなたに元気をお届けします</span>
+          <span className="text-brand-pink drop-shadow-md">
+            あなたに
+            <br className="md:hidden" />
+            元気をお届けします
+          </span>
         </motion.h1>
       </div>
 

@@ -54,7 +54,7 @@ function SocialLinks() {
       </a>
       {/* X (Twitter) */}
       <a
-        href="https://x.com/tentsukuman"
+        href="#"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="X (Twitter)"
@@ -68,7 +68,7 @@ function SocialLinks() {
 
       {/* Instagram (グラデーションはインラインスタイルで対応) */}
       <a
-        href="https://www.instagram.com/tentsukuman/"
+        href="#"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
@@ -89,7 +89,7 @@ function SocialLinks() {
 
       {/* YouTube */}
       <a
-        href="https://www.youtube.com/@tentsukuman"
+        href="#"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="YouTube"

@@ -58,7 +58,7 @@ export function ProfileClient() {
           >
             <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative">
               <Image
-                src="https://images.unsplash.com/photo-1544605177-74be8dfc20f5?q=80&w=1200"
+                src="/images/profiledetail.jpg"
                 alt="マリコ☆バタフライ"
                 fill
                 priority

@@ -24,7 +24,7 @@ function ImageSection() {
     >
       <div className="absolute inset-0 bg-brand-orange-light/20 z-10 mix-blend-overlay" />
       <img
-        src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=800"
+        src="/images/profile.jpg"
         alt="マリコ☆バタフライ"
         className="w-full h-full object-cover"
       />
