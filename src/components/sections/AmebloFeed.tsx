@@ -3,6 +3,8 @@ import { format } from 'date-fns';
 import { ja } from 'date-fns/locale';
 import type { AmebloPost } from '@/types/ameblo';
 
+import { fetchAmebloRSS } from '@/lib/ameblo';
+
 // ノートパッドアイコン（サムネなし時のフォールバック）
 function NoteIcon() {
   return (
@@ -35,21 +37,7 @@ function formatDate(pubDate: string): string {
 }
 
 async function getAmebloFeed(): Promise<AmebloPost[]> {
-  try {
-    // ローカル開発時は絶対URLが必要
-    const baseUrl =
-      process.env.NEXT_PUBLIC_BASE_URL ??
-      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
-
-    const res = await fetch(`${baseUrl}/api/ameblo-rss`, {
-      next: { revalidate: 0 }, // ※一時的にキャッシュを無効化（修正確認用）
-    });
-
-    if (!res.ok) return [];
-    return (await res.json()) as AmebloPost[];
-  } catch {
-    return [];
-  }
+  return fetchAmebloRSS();
 }
 
 export async function AmebloFeed() {
